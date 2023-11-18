@@ -2,12 +2,7 @@
 
 Projeto Front End
 
-## Alunos
+## Alterações
 
--Leonardo Kenji Akiyama
-
--Kaue Galon
-
--Pedro Henrique Cagol
-
--William Felipe Coscodai
+ -Funcão de validação do cadastro de usuário na pagina de cadastro
+ - Funcão mock de paginação na página de relatório 
