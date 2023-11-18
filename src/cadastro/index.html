@@ -23,9 +23,19 @@
         <section class="shadow">
           <h1>Cadastre-se</h1>
           <form>
-            <input type="text" placeholder="Nome Completo" name="nome" />
-            <input type="email" placeholder="E-mail" name="email" />
-            <input type="tel" placeholder="Telefone" name="telefone" />
+            <input
+              type="text"
+              placeholder="Nome Completo"
+              name="nome"
+              id="nome"
+            />
+            <input type="email" placeholder="E-mail" name="email" id="email" />
+            <input
+              type="tel"
+              placeholder="Telefone"
+              name="telefone"
+              id="telefone"
+            />
             <input type="password" placeholder="Senha" name="senha" />
             <input
               type="password"
@@ -41,6 +51,46 @@
           </p>
         </section>
       </main>
+      <script defer>
+        const form = document.querySelector('form')
+
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          const data = new FormData(form)
+          const nome = data.get('nome')
+          const email = data.get('email')
+          const telefone = data.get('telefone')
+          const senha = data.get('senha')
+          const Csenha = data.get('Csenha')
+
+          if (!nome) {
+            const nome = document.querySelector('#nome')
+            alert('Preencha o campo nome!')
+            nome.style.border = '1px solid red'
+          }
+
+          if (!email) {
+            const email = document.querySelector('#email')
+            alert('Preencha o campo e-mail!')
+            email.style.border = '1px solid red'
+          }
+
+          if (!telefone) {
+            const telefone = document.querySelector('#telefone')
+            alert('Preencha o campo telefone!')
+            telefone.style.border = '1px solid red'
+          }
+
+          if (nome && email && telefone && senha && Csenha) {
+            if (senha === Csenha) {
+              alert('Cadastro realizado com sucesso!')
+              window.location.href = '../index.html'
+            } else {
+              alert('As senhas não coincidem!')
+            }
+          }
+        })
+      </script>
       <footer>
         <p>&copy; 2023 - Giga Chad HardWare - Todos os direitos reservados</p>
       </footer>

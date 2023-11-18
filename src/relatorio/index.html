@@ -6,6 +6,65 @@
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="../globals.css" />
     <title>Relatório</title>
+    <script defer>
+      const data = [
+        {
+          nome: 'Kaue Galon Silva',
+          email: 'kauegls@gmail.com',
+          telefone: '(41)99888-8888',
+        },
+        {
+          nome: 'Pedro Henrique Cagol',
+          email: 'cagol123@gmail.com',
+          telefone: '(41)99999-9999',
+        },
+        {
+          nome: 'Leonardo Kenji',
+          email: 'leokenji@gmail.com',
+          telefone: '(41)88888-8888',
+        },
+        {
+          nome: 'William Felipe',
+          email: 'will25felipe@gmail.com',
+          telefone: '(41)88888-8888',
+        },
+      ]
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max)
+      }
+
+      function carregarDados() {
+        const tbody = document.querySelector('tbody')
+
+        const trs = document.querySelectorAll('tbody tr')
+
+        if (trs.length > 0)
+          trs.forEach(tr => {
+            tr.remove()
+          })
+
+        for (x = 0; x < 10; x++) {
+          const tr = document.createElement('tr')
+          const tdNome = document.createElement('td')
+          const tdEmail = document.createElement('td')
+          const tdTelefone = document.createElement('td')
+
+          const random = getRandomInt(data.length)
+          const user = data[random]
+
+          tdNome.textContent = user.nome
+          tdEmail.textContent = user.email
+          tdTelefone.textContent = user.telefone
+
+          tr.appendChild(tdNome)
+          tr.appendChild(tdEmail)
+          tr.appendChild(tdTelefone)
+
+          tbody.appendChild(tr)
+        }
+      }
+    </script>
   </head>
   <body>
     <div class="screen gradient">
@@ -37,43 +96,11 @@
                 <td>kauegls@gmail.com</td>
                 <td>(41)99888-8888</td>
               </tr>
-              <tr>
-                <td>Kaue Galon Silva</td>
-                <td>kauegls@gmail.com</td>
-                <td>(41)99888-8888</td>
-              </tr>
-              <tr>
-                <td>William Felipe</td>
-                <td>WillFelipe@gmail.com</td>
-                <td>(41)99777-7777</td>
-              </tr>
-              <tr>
-                <td>William Felipe</td>
-                <td>WillFelipe@gmail.com</td>
-                <td>(41)99777-7777</td>
-              </tr>
-              <tr>
-                <td>Leonardo Kenji</td>
-                <td>LeoKenji@gmail.com</td>
-                <td>(41)99666-6666</td>
-              </tr>
-              <tr>
-                <td>Leonardo Kenji</td>
-                <td>LeoKenji@gmail.com</td>
-                <td>(41)99666-6666</td>
-              </tr>
-              <tr>
-                <td>Pedro Cagol</td>
-                <td>PedroCagol@gmail.com</td>
-                <td>(41)99555-5555</td>
-              </tr>
-              <tr>
-                <td>Pedro Cagol</td>
-                <td>PedroCagol@gmail.com</td>
-                <td>(41)99555-5555</td>
-              </tr>
             </tbody>
           </table>
+          <button class="button" onclick="carregarDados()">
+            Próxima página
+          </button>
         </div>
       </main>
       <footer>
